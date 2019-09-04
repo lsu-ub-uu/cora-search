@@ -32,7 +32,7 @@
 		<finalName>cora-${artifactId}-${version}</finalName>
 	</build>
 
-	<name>storage</name>
+	<name>search</name>
 
 	<properties>
 		<coradata.version>1.0.0</coradata.version>
