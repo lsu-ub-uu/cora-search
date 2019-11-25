@@ -32,7 +32,7 @@
 	<name>search</name>
 
 	<properties>
-		<coradata.version>3.0.0</coradata.version>
+		<coradata.version>3.1.0</coradata.version>
 	</properties>
 
 	<scm>
