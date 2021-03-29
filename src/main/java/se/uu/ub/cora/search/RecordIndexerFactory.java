@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Uppsala University Library
+ * Copyright 2021 Uppsala University Library
  *
  * This file is part of Cora.
  *
@@ -18,25 +18,14 @@
  */
 package se.uu.ub.cora.search;
 
-import java.util.List;
-
-import se.uu.ub.cora.data.DataGroup;
-
-public interface RecordSearch {
-
+public interface RecordIndexerFactory {
 	/**
-	 * searchUsingListOfRecordTypesToSearchInAndSearchData is used to search an index for records
-	 * matching the searchData
+	 * returns a new instance of RecordIndexer.
 	 * 
-	 * @param recordTypes
-	 *            A List of recordTypes to include in the search
+	 * @param A
+	 *            String url to use in the {@link RecordIndexer} to connect to an index
 	 * 
-	 * @param searchData
-	 *            A {@link DataGroup} including the data to compose the search query from
-	 * 
-	 * @return A SearchResult with the information returned from the search
+	 * @return A newly factored {@link RecordIndexer}
 	 */
-	SearchResult searchUsingListOfRecordTypesToSearchInAndSearchData(List<String> recordTypes,
-			DataGroup searchData);
-
+	RecordIndexer factor(String url);
 }
