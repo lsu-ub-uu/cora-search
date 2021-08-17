@@ -34,11 +34,11 @@ public interface RecordIndexer {
 	 * @param collectedData
 	 *            A {@link DataGroup} that contains the index information for the record
 	 * 
-	 * @param record
+	 * @param dataRecord
 	 *            A {@link DataGroup}, the record to index
 	 *
 	 */
-	void indexData(List<String> ids, DataGroup collectedData, DataGroup record);
+	void indexData(List<String> ids, DataGroup collectedData, DataGroup dataRecord);
 
 	/**
 	 * deleteFromIndex is used to delete a record from an index.
