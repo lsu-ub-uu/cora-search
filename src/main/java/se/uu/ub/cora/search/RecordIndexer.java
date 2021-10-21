@@ -40,6 +40,9 @@ public interface RecordIndexer {
 	 */
 	void indexData(List<String> ids, DataGroup collectedData, DataGroup dataRecord);
 
+	void indexDataWithoutExplicitCommit(List<String> ids, DataGroup collectedData,
+			DataGroup dataRecord);
+
 	/**
 	 * deleteFromIndex is used to delete a record from an index.
 	 * 
