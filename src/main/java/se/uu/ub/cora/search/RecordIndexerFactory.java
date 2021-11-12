@@ -18,6 +18,11 @@
  */
 package se.uu.ub.cora.search;
 
+/**
+ * RecordIndexerFactory provides implementations of RecordIndexer
+ * <p>
+ * Implementations of RecordIndexerFactory MUST be threadsafe
+ */
 public interface RecordIndexerFactory {
 	/**
 	 * returns a new instance of RecordIndexer.

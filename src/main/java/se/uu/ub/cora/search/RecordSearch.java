@@ -22,8 +22,12 @@ import java.util.List;
 
 import se.uu.ub.cora.data.DataGroup;
 
+/**
+ * RecordSearch searches for data in an index.
+ * <p>
+ * Implementations of RecordSearch are generally not threadsafe.
+ */
 public interface RecordSearch {
-
 	/**
 	 * searchUsingListOfRecordTypesToSearchInAndSearchData is used to search an index for records
 	 * matching the searchData
@@ -38,5 +42,4 @@ public interface RecordSearch {
 	 */
 	SearchResult searchUsingListOfRecordTypesToSearchInAndSearchData(List<String> recordTypes,
 			DataGroup searchData);
-
 }

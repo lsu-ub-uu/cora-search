@@ -22,10 +22,11 @@ import java.util.List;
 
 import se.uu.ub.cora.data.DataGroup;
 
+/**
+ * SearchResult is a data structure containing information about the result from a search
+ */
 public final class SearchResult {
-
 	public long start;
 	public long totalNumberOfMatches;
 	public List<DataGroup> listOfDataGroups;
-
 }

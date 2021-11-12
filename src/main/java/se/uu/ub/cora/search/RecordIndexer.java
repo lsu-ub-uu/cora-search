@@ -22,9 +22,15 @@ import java.util.List;
 
 import se.uu.ub.cora.data.DataGroup;
 
+/**
+ * RecordIndexer indexes data in an index.
+ * <p>
+ * Implementations of RecordIndexer are generally not threadsafe.
+ */
 public interface RecordIndexer {
 	/**
-	 * indexData is used to add a record to an index, to make is searchable.
+	 * indexData adds a record to an index, to make is searchable. Implementations SHOULD ensure
+	 * that the indexed data is immediately available in searches as soon as this method returns.
 	 * 
 	 * @param ids
 	 *            A list of Strings containing ids to use to index the record. If a record is of an
@@ -40,11 +46,31 @@ public interface RecordIndexer {
 	 */
 	void indexData(List<String> ids, DataGroup collectedData, DataGroup dataRecord);
 
+	/**
+	 * indexDataWithoutExplicitCommit adds a record to an index, to make is searchable.
+	 * Implementations do not have to ensure that the indexed data is immediately available in
+	 * searches as soon as this method returns. Implementations of this method are free to delay the
+	 * availability of the indexed data for a reasonable period of time, for reasons such as improve
+	 * performance.
+	 * 
+	 * @param ids
+	 *            A list of Strings containing ids to use to index the record. If a record is of an
+	 *            implementing type, the ids might contain both the combination of implementing
+	 *            recordType and id, and the abstract recordType and id.
+	 * 
+	 * @param collectedData
+	 *            A {@link DataGroup} that contains the index information for the record
+	 * 
+	 * @param dataRecord
+	 *            A {@link DataGroup}, the record to index
+	 *
+	 */
 	void indexDataWithoutExplicitCommit(List<String> ids, DataGroup collectedData,
 			DataGroup dataRecord);
 
 	/**
-	 * deleteFromIndex is used to delete a record from an index.
+	 * deleteFromIndex deletes a record from an index. Implementations SHOULD ensure that the
+	 * indexed data is immediately removed from searches as soon as this method returns.
 	 * 
 	 * @param type
 	 *            A String with the recordType of the record to delete
