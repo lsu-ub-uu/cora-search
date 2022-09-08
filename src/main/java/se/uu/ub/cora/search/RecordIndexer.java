@@ -21,6 +21,7 @@ package se.uu.ub.cora.search;
 import java.util.List;
 
 import se.uu.ub.cora.data.DataGroup;
+import se.uu.ub.cora.data.collectterms.IndexTerm;
 
 /**
  * RecordIndexer indexes data in an index.
@@ -37,14 +38,15 @@ public interface RecordIndexer {
 	 *            implementing type, the ids might contain both the combination of implementing
 	 *            recordType and id, and the abstract recordType and id.
 	 * 
-	 * @param collectedData
-	 *            A {@link DataGroup} that contains the index information for the record
+	 * @param indexTerms
+	 *            A list of {@link IndexTerm} that contains the index term information for the
+	 *            record
 	 * 
 	 * @param dataRecord
 	 *            A {@link DataGroup}, the record to index
 	 *
 	 */
-	void indexData(List<String> ids, DataGroup collectedData, DataGroup dataRecord);
+	void indexData(List<String> ids, List<IndexTerm> indexTerms, DataGroup dataRecord);
 
 	/**
 	 * indexDataWithoutExplicitCommit adds a record to an index, to make is searchable.
@@ -58,14 +60,15 @@ public interface RecordIndexer {
 	 *            implementing type, the ids might contain both the combination of implementing
 	 *            recordType and id, and the abstract recordType and id.
 	 * 
-	 * @param collectedData
-	 *            A {@link DataGroup} that contains the index information for the record
+	 * @param indexTerms
+	 *            A list of {@link IndexTerm} that contains the index term information for the
+	 *            record
 	 * 
 	 * @param dataRecord
 	 *            A {@link DataGroup}, the record to index
 	 *
 	 */
-	void indexDataWithoutExplicitCommit(List<String> ids, DataGroup collectedData,
+	void indexDataWithoutExplicitCommit(List<String> ids, List<IndexTerm> indexTerms,
 			DataGroup dataRecord);
 
 	/**
