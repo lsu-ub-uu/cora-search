@@ -21,7 +21,7 @@ package se.uu.ub.cora.search;
 import java.util.List;
 
 import se.uu.ub.cora.data.DataGroup;
-import se.uu.ub.cora.data.collectterms.IndexTerm;
+import se.uu.ub.cora.data.collected.IndexTerm;
 
 /**
  * RecordIndexer indexes data in an index.
