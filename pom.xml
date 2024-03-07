@@ -32,8 +32,8 @@
 	<name>search</name>
 
 	<properties>
-		<coradata.version>8.0.0</coradata.version>
-		<json.version>3.9.0</json.version>
+		<coradata.version>9.0.0</coradata.version>
+		<json.version>3.10.0</json.version>
 	</properties>
 
 	<scm>
