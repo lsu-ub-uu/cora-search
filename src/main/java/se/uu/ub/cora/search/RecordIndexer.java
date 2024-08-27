@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Uppsala University Library
+ * Copyright 2017, 2024 Uppsala University Library
  *
  * This file is part of Cora.
  *
@@ -44,8 +44,10 @@ public interface RecordIndexer {
 	 * 
 	 * @param dataRecord
 	 *            A {@link DataGroup}, the record to index
-	 *
+	 * 
 	 */
+	// TODO: create and use a new method to get a recordType and recordId. Combined the id inside
+	// the method as: recordtype_recordId
 	void indexData(List<String> ids, List<IndexTerm> indexTerms, DataGroup dataRecord);
 
 	/**
@@ -66,8 +68,9 @@ public interface RecordIndexer {
 	 * 
 	 * @param dataRecord
 	 *            A {@link DataGroup}, the record to index
-	 *
 	 */
+	// TODO: create and use a new method to get a recordType and recordId. Combined the id inside
+	// the method as: recordtype_recordId
 	void indexDataWithoutExplicitCommit(List<String> ids, List<IndexTerm> indexTerms,
 			DataGroup dataRecord);
 
