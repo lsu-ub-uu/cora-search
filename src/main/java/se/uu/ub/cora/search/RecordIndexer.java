@@ -20,7 +20,7 @@ package se.uu.ub.cora.search;
 
 import java.util.List;
 
-import se.uu.ub.cora.data.DataGroup;
+import se.uu.ub.cora.data.DataRecordGroup;
 import se.uu.ub.cora.data.collected.IndexTerm;
 
 /**
@@ -33,22 +33,19 @@ public interface RecordIndexer {
 	 * indexData adds a record to an index, to make is searchable. Implementations SHOULD ensure
 	 * that the indexed data is immediately available in searches as soon as this method returns.
 	 * 
-	 * @param ids
-	 *            A list of Strings containing ids to use to index the record. If a record is of an
-	 *            implementing type, the ids might contain both the combination of implementing
-	 *            recordType and id, and the abstract recordType and id.
-	 * 
+	 * @param recordType
+	 *            A String with the recordType to index
+	 * @param recordId
+	 *            A String with the recordId to index
 	 * @param indexTerms
 	 *            A list of {@link IndexTerm} that contains the index term information for the
 	 *            record
-	 * 
-	 * @param dataRecord
-	 *            A {@link DataGroup}, the record to index
+	 * @param dataRecordGroup
+	 *            A {@link DataRecordGroup}, the record to index
 	 * 
 	 */
-	// TODO: create and use a new method to get a recordType and recordId. Combined the id inside
-	// the method as: recordtype_recordId
-	void indexData(List<String> ids, List<IndexTerm> indexTerms, DataGroup dataRecord);
+	void indexData(String recordType, String recordId, List<IndexTerm> indexTerms,
+			DataRecordGroup dataRecordGroup);
 
 	/**
 	 * indexDataWithoutExplicitCommit adds a record to an index, to make is searchable.
@@ -57,22 +54,20 @@ public interface RecordIndexer {
 	 * availability of the indexed data for a reasonable period of time, for reasons such as improve
 	 * performance.
 	 * 
-	 * @param ids
-	 *            A list of Strings containing ids to use to index the record. If a record is of an
-	 *            implementing type, the ids might contain both the combination of implementing
-	 *            recordType and id, and the abstract recordType and id.
-	 * 
+	 * @param recordType
+	 *            A String with the recordType to index
+	 * @param recordId
+	 *            A String with the recordId to index
 	 * @param indexTerms
 	 *            A list of {@link IndexTerm} that contains the index term information for the
 	 *            record
-	 * 
-	 * @param dataRecord
-	 *            A {@link DataGroup}, the record to index
+	 * @param dataRecordGroup
+	 *            A {@link DataRecordGroup}, the record to index
 	 */
 	// TODO: create and use a new method to get a recordType and recordId. Combined the id inside
 	// the method as: recordtype_recordId
-	void indexDataWithoutExplicitCommit(List<String> ids, List<IndexTerm> indexTerms,
-			DataGroup dataRecord);
+	void indexDataWithoutExplicitCommit(String recordType, String recordId,
+			List<IndexTerm> indexTerms, DataRecordGroup dataRecordGroup);
 
 	/**
 	 * deleteFromIndex deletes a record from an index. Implementations SHOULD ensure that the
